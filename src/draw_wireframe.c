@@ -6,11 +6,11 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:55:40 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 07:29:02 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:10:45 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../inc/fdf.h"
 
 int	get_z_value(t_fdf *fdf, int x, int y)
 {
