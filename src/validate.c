@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 07:34:31 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 08:44:46 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 09:57:33 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	is_valid_number(char *str)
 		i = 1;
 	if (!str[i])
 		return (0);
-	while (str[i])
+	while (str[i] && str[i] != ',')
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
