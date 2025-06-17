@@ -1,4 +1,4 @@
-# FDF - Wireframe Viewer
+# FDF - Wireframe Viewer ✔️ 125/100
 
 A 3D wireframe viewer that renders height maps as beautiful wireframe models with multiple projections and interactive controls.
 
