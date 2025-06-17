@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:35:52 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 08:42:49 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:05:10 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	*parse_line_values(char *line)
 	i = 0;
 	while (i < count)
 	{
-		values[i] = ft_atoi(split_line[i]);
+		values[i] = extract_z_value(split_line[i]);
 		i++;
 	}
 	free_split(split_line);

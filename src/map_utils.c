@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:40:42 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 08:25:24 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 09:51:51 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,20 @@ int	get_map_height(char **lines)
 	while (lines[height])
 		height++;
 	return (height);
+}
+
+int extract_z_value(char *token)
+{
+    char *comma_pos;
+    int z_value;
+    
+    comma_pos = ft_strchr(token, ',');
+    if (comma_pos)
+    {
+        *comma_pos = '\0';
+        z_value = ft_atoi(token);
+        *comma_pos = ',';
+        return (z_value);
+	}
+    return (ft_atoi(token));
 }
