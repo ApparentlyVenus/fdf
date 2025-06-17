@@ -15,6 +15,7 @@ SRC_FILES = draw_line.c \
 			projections.c \
 			color.c \
 			main.c \
+			validate.c \
 			
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(SRCS:.c=.o)
