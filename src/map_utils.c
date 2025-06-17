@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:40:42 by odana             #+#    #+#             */
-/*   Updated: 2025/06/15 21:09:07 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 08:25:24 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
-}
-
-int	get_map_width(char **lines)
-{
-	if (!lines || !lines[0])
-		return (0);
-	return (count_cols(lines[0]));
 }
 
 int	get_map_height(char **lines)
