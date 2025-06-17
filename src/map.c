@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:35:52 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:02:11 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 08:42:49 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static t_map	*create_map(char **lines)
 
 	if (!lines)
 		return (NULL);
-	width = get_map_width(lines);
+	width = count_cols(lines[0]);
 	height = get_map_height(lines);
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -106,7 +106,12 @@ t_map	*parse_fdf_file(char *filename)
 	lines = extract_lines(filename);
 	if (!lines)
 		return (NULL);
-	map = create_map(lines);
+	if (validate_fdf_map(lines))
+	{
+		map = create_map(lines);
+		free_lines(lines);
+		return (map);
+	}
 	free_lines(lines);
-	return (map);
+	return (NULL);
 }

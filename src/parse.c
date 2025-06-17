@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:54:02 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:00:09 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 08:42:44 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 #include "../lib/inc/libft.h"
 #include "../lib/inc/get_next_line.h"
 
-static void	replace_tabs(char *line)
+static void	cleanup_line(char *line)
 {
 	int	i;
+	int	len;
 
+	if (!line)
+		return ;
 	i = 0;
 	while (line[i])
 	{
@@ -25,6 +28,9 @@ static void	replace_tabs(char *line)
 			line[i] = ' ';
 		i++;
 	}
+	len = ft_strlen(line);
+	if (len > 0 && line[len - 1] == '\n')
+		line[len - 1] = '\0';
 }
 
 void	free_lines(char **lines)
@@ -84,7 +90,7 @@ char	**extract_lines(char *file)
 		lines[i] = get_next_line(fd);
 		if (!lines[i])
 			break ;
-		replace_tabs(lines[i]);
+		cleanup_line(lines[i]);
 		i++;
 	}
 	lines[i] = NULL;
