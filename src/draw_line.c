@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 16:03:33 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 09:08:40 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 07:29:40 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	draw_horizontal_lines(t_fdf *fdf, t_point2d(*f)(t_fdf *, t_point3d))
 		{
 			p1 = (t_point3d){x, y, get_z_value(fdf, x, y)};
 			p2 = (t_point3d){x + 1, y, get_z_value(fdf, x + 1, y)};
-			draw_line(fdf, f(fdf, p1), f(fdf, p2), get_line_color(fdf, p1.z, p2.z));
+			draw_line(fdf, f(fdf, p1), f(fdf, p2),
+				get_line_color(fdf, p1.z, p2.z));
 			y += fdf->step;
 		}
 		x += fdf->step;
@@ -99,7 +100,8 @@ void	draw_vertical_lines(t_fdf *fdf, t_point2d(*f)(t_fdf *, t_point3d))
 		{
 			p1 = (t_point3d){x, y, get_z_value(fdf, x, y)};
 			p2 = (t_point3d){x, y + 1, get_z_value(fdf, x, y + 1)};
-			draw_line(fdf, f(fdf, p1), f(fdf, p2), get_line_color(fdf, p1.z, p2.z));
+			draw_line(fdf, f(fdf, p1), f(fdf, p2),
+				get_line_color(fdf, p1.z, p2.z));
 			x += fdf->step;
 		}
 		y += fdf->step;

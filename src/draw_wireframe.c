@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:55:40 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 11:44:09 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 07:29:02 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,29 @@ void	init_step_and_zoom(t_fdf *fdf)
 		fdf->zoom = 15;
 	else
 		fdf->zoom = 25;
-	fdf->step = (fdf->width > 200 || fdf->height > 200) ? 4 : 1;
+	if (fdf->width > 200 || fdf->height > 200)
+		fdf->step = 4;
+	else
+		fdf->step = 1;
 }
 
-void init_z_range(t_fdf *fdf)
+void	init_z_range(t_fdf *fdf)
 {
-    int i;
-    int total_points;
-    
-    total_points = fdf->width * fdf->height;
-    fdf->z_min = INT_MAX;
-    fdf->z_max = INT_MIN;    
-    i = 0;
-    while (i < total_points)
-    {
-        if (fdf->map->pts[i].z < fdf->z_min)
-            fdf->z_min = fdf->map->pts[i].z;
-        if (fdf->map->pts[i].z > fdf->z_max)
-            fdf->z_max = fdf->map->pts[i].z;
-        i++;
-    }
+	int	i;
+	int	total_points;
+
+	total_points = fdf->width * fdf->height;
+	fdf->z_min = INT_MAX;
+	fdf->z_max = INT_MIN;
+	i = 0;
+	while (i < total_points)
+	{
+		if (fdf->map->pts[i].z < fdf->z_min)
+			fdf->z_min = fdf->map->pts[i].z;
+		if (fdf->map->pts[i].z > fdf->z_max)
+			fdf->z_max = fdf->map->pts[i].z;
+		i++;
+	}
 }
 
 void	render_scene(t_fdf *fdf)
