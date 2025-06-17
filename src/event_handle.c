@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 18:49:20 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:11:41 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 08:20:50 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ int	key_hook(int keycode, t_fdf *fdf)
 	if (keycode == ESC_KEY)
 	{
 		mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
+		mlx_destroy_display(fdf->mlx_ptr);
+		free(fdf->mlx_ptr);
+		free_map(fdf->map);
 		exit(0);
 	}
 	refresh = handle_movement(keycode, fdf);

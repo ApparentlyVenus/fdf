@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 18:34:30 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:24:26 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 08:23:27 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ static int	init_mlx(t_fdf *fdf)
 	if (!fdf->win_ptr)
 		return (0);
 	return (1);
-}
-
-static int	close_hook(t_fdf *fdf)
-{
-	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
-	mlx_destroy_display(fdf->mlx_ptr);
-	exit(0);
 }
 
 static int	mouse_hook(int button, int x, int y, t_fdf *fdf)
@@ -49,13 +42,6 @@ static int	mouse_hook(int button, int x, int y, t_fdf *fdf)
 	return (0);
 }
 
-static void	setup_hooks(t_fdf *fdf)
-{
-	mlx_key_hook(fdf->win_ptr, key_hook, fdf);
-	mlx_mouse_hook(fdf->win_ptr, mouse_hook, fdf);
-	mlx_hook(fdf->win_ptr, 17, 0, close_hook, fdf);
-}
-
 int	main(int argc, char **argv)
 {
 	t_fdf	fdf;
@@ -72,9 +58,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	init_fdf(&fdf, map);
-	setup_hooks(&fdf);
+	mlx_key_hook(fdf.win_ptr, key_hook, &fdf);
+	mlx_mouse_hook(fdf.win_ptr, mouse_hook, &fdf);
 	render_scene(&fdf);
 	mlx_loop(fdf.mlx_ptr);
-	free_map(map);
 	return (0);
 }
