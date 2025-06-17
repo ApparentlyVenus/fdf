@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:35:52 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 10:05:10 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:15:05 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static t_point3d	*create_points(char **lines, int width, int height)
 	{
 		line_values = parse_line_values(lines[y++]);
 		if (!line_values)
-			return (free(points), NULL);
+			return (free(points), free(line_values), NULL);
 		x = 0;
 		while (x < width)
 		{

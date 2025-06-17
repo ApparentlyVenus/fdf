@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:55:40 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 10:10:45 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:21:23 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	get_z_value(t_fdf *fdf, int x, int y)
 {
-	return (fdf->map->pts[y * fdf->width + x].z);
+	if (x >= 0 && x < fdf->width && y >= 0 && y < fdf->height)
+		return (fdf->map->pts[y * fdf->width + x].z);
+	else
+		return (0);
 }
 
 void	init_fdf(t_fdf *fdf, t_map *map)
