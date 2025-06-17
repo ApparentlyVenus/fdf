@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:54:15 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:11:58 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 09:50:00 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 
 # define WINDOW_WIDTH 2000
 # define WINDOW_HEIGHT 1200
-
 # define PI 3.14159265358979323846f
 
 typedef struct s_point2d
@@ -106,9 +105,13 @@ int			count_cols(char *line);
 // map + utils
 t_map		*parse_fdf_file(char *filename);
 int			get_map_height(char **lines);
-int			get_map_width(char **lines);
 void		free_split(char **split);
 void		free_map(t_map *map);
+int extract_z_value(char *token);
+
+// validation
+int			validate_fdf_map(char **lines);
+void		free_split(char **split);
 
 // draw line (bresenhamd algorithm)
 void		draw_line(t_fdf *fdf, t_point2d start, t_point2d end, int color);
