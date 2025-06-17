@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 18:27:16 by odana             #+#    #+#             */
-/*   Updated: 2025/06/16 13:52:34 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:12:29 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_point2d	project_conic(t_fdf *fdf, t_point3d point3d)
 	eye_z = 500.0f;
 	z_transformed = point3d.z * fdf->z_scale + eye_z;
 	if (z_transformed <= 0)
-		z_transformed = 1;
+		z_transformed = 1.0f;
 	scale_factor = d / z_transformed;
 	point2d.x = point3d.x * scale_factor * fdf->zoom + fdf->offset_x;
 	point2d.y = point3d.y * scale_factor * fdf->zoom + fdf->offset_y;
