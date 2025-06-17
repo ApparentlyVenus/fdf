@@ -6,7 +6,7 @@
 /*   By: odana <odana@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:54:15 by odana             #+#    #+#             */
-/*   Updated: 2025/06/17 09:50:00 by odana            ###   ########.fr       */
+/*   Updated: 2025/06/17 10:30:26 by odana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_map		*parse_fdf_file(char *filename);
 int			get_map_height(char **lines);
 void		free_split(char **split);
 void		free_map(t_map *map);
-int extract_z_value(char *token);
+int			extract_z_value(char *token);
 
 // validation
 int			validate_fdf_map(char **lines);
